@@ -13,6 +13,10 @@
 	<put-attribute name="footer" value="/WEB-INF/views/commons/footer.jsp"/>
 </definition>
 
+<definition name="infoimage.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/info/infoimage.jsp"/>
+</definition>
+
 <definition name="infolist.tiles" extends="main.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/info/infolist.jsp"/>
 </definition>
@@ -28,6 +32,13 @@
 <definition name="infoupdate.tiles" extends="main.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/info/infoupdate.jsp"/>
 </definition>
+
+
+
+<definition name="eventmain.tiles" extends="main.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/event/eventmain.jsp"/>
+</definition>
+
 
 </tiles-definitions>
 

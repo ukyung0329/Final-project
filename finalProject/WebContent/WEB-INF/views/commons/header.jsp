@@ -15,7 +15,8 @@
 
 <div id="top_menu_wrap">
 	<div id="_top_menu">
-		<a href="infolist.do" title="공지사항 게시판">공지사항</a>			
+		<a href="infolist.do" title="공지사항 게시판">공지사항</a>		
+		<a href="eventmain.do" title="Event 게시판">Event</a>		
 	</div>
 </div>
 

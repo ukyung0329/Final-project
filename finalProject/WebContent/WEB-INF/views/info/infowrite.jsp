@@ -3,9 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
 
-<h2><img src="image/writeinfo.png" alt="" style="width: 80px; height: 80px;" />   공지사항 작성</h2>
+<h2><img src="image/writeinfo.png" alt="" style="width: 80px; height: 80px;" /> 공지사항 작성</h2>
 <form name="frmForm" id="_frmForm" method="post" action="infowriteAf.do" enctype="multipart/form-data">
-<!-- <input type="file" name="fileload" size="20" required="required"> -->
+<input type="file" name="fileload" size="20" required="required">
 
 <table style="width:85%;">
 <colgroup>
@@ -33,15 +33,18 @@
 			<textarea rows="10" cols="50" name='content' id="_content"></textarea>
 		</td>
 	</tr>
-
 </tbody>
-
 </table>
 
 
 	<span>					
 		<i class="fas fa-pencil-alt" id="btnWriteAf" style="color:orange;">글작성</i>
 	</span>
+	<br>
+	<a href="infoimage.do" title="공지사항 게시판으로 돌아가기">이미지게시판으로 가기</a>	
+	<br>
+	<a href="infolist.do" title="공지사항 게시판으로 돌아가기">메인 게시판으로 가기</a>	
+
 </form>
 
 <script type="text/javascript">

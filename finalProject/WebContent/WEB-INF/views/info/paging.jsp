@@ -63,7 +63,8 @@
 <div style="float: left; width: 96%; text-align: center;">
 	<!-- << -->
 	<a href="#none" title="처음페이지" onclick="goPage(0)">
-		<img alt="" src="./image/arrow_first.gif" style="width: 10px; height: 10px">
+		<img src="image/arrow_left.png" alt="" style="width: 50px; height: 50px;" />
+		<!-- <img alt="" src="./image/arrow_first.gif" style="width: 10px; height: 10px"> -->
 	</a>
 	
 	<!-- < -->		<!-- 총 글 수가 100개가 넘어야 보인다 -->
@@ -71,7 +72,9 @@
 	if(screenStartPageIndex > 1){	// screenStartPageIndex 1=(1 ~ 10) 2=(11 ~ 20)
 		%>
 		<a href="#none" title="이전페이지" onclick="goPage('<%=screenStartPageIndex-1 %>')">
-			<img alt="" src="./image/arrow_back.gif" style="width: 10px;height: 10px">
+		
+			<!-- <img alt="" src="./image/arrow_back.gif" style="width: 10px;height: 10px"> -->
+			!!
 		</a>		
 		<%
 	}	
@@ -105,7 +108,8 @@
 	if(screenEndPageIndex < totalPageCount){
 		%>	
 		<a href="#none" title="다음페이지" onclick="goPage(<%=screenEndPageIndex %>)">
-			<img alt="" src="./image/arrow_next.gif" style="width: 10px; height: 10px">
+			>>>
+			<!-- <img src="image/paging.png" alt="" style="width: 50px; height: 50px;" /> -->
 		</a>		
 		<%
 	}	
@@ -118,7 +122,7 @@
 	
 	<!-- >> -->
 	<a href="#none" title="마지막페이지" onclick="goPage(<%=end_page %>)">
-		<img alt="" src="./image/arrow_end.gif" style="width: 10px; height: 10px">	
+		<img src="image/arrow_right.png" alt="" style="width: 50px; height: 50px;" />
 	</a>
 </div>
 

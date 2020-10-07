@@ -52,11 +52,24 @@ public class InfoDto implements Serializable {
 	private int del;		// 삭제
 	private int readcount;	// 조회수
 	
+	private String filename;	
+	private String oldfilename;
+	
+	
 	public InfoDto() {
 	}
 
-	public InfoDto(int seq, String id, int ref, int step, int depth, String title, String content, String wdate, int del,
-			int readcount) {
+	public InfoDto(String id, String title, String content, String filename, String oldfilename) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.filename = filename;
+		this.oldfilename = oldfilename;
+	}
+
+	public InfoDto(int seq, String id, int ref, int step, int depth, String title, String content, String wdate,
+			int del, int readcount, String filename, String oldfilename) {
 		super();
 		this.seq = seq;
 		this.id = id;
@@ -68,14 +81,8 @@ public class InfoDto implements Serializable {
 		this.wdate = wdate;
 		this.del = del;
 		this.readcount = readcount;
-	}
-
-	public InfoDto(String id, String title, String content) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		
+		this.filename = filename;
+		this.oldfilename = oldfilename;
 	}
 
 	public int getSeq() {
@@ -158,12 +165,29 @@ public class InfoDto implements Serializable {
 		this.readcount = readcount;
 	}
 
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public String getOldfilename() {
+		return oldfilename;
+	}
+
+	public void setOldfilename(String oldfilename) {
+		this.oldfilename = oldfilename;
+	}
+
 	@Override
 	public String toString() {
-		return "InfoDto [seq=" + seq + ", id=" + id + ", ref=" + ref + ", step=" + step + ", depth=" + depth + ", title="
-				+ title + ", content=" + content + ", wdate=" + wdate + ", del=" + del + ", readcount=" + readcount
-				+ "]";
+		return "InfoDto [seq=" + seq + ", id=" + id + ", ref=" + ref + ", step=" + step + ", depth=" + depth
+				+ ", title=" + title + ", content=" + content + ", wdate=" + wdate + ", del=" + del + ", readcount="
+				+ readcount + ", filename=" + filename + ", oldfilename=" + oldfilename + "]";
 	}
+
 }
 
 

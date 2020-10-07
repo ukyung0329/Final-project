@@ -14,10 +14,10 @@
 
 <select id="Infolist" parameterType="cc.factory.com.dto.InfoParam" 
 	resultType="cc.factory.com.dto.InfoDto">
-	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT 
+	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT, FILENAME, OLDFILENAME 
 	FROM 
 		( SELECT ROW_NUMBER()OVER(ORDER BY REF DESC, STEP ASC)AS RNUM,
-				SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT
+				SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT, FILENAME, OLDFILENAME
 		  FROM CC_INFO 
 		  WHERE 1=1
 			<if test="choice != null and choice != ''
@@ -57,18 +57,26 @@
 </select>
 
 
- 
 
-
+ <!-- PDS    -->
 <insert id="writeInfo" parameterType="cc.factory.com.dto.InfoDto">
+	INSERT INTO CC_INFO(SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT, FILENAME, OLDFILENAME)
+	VALUES(SEQ_CC_INFO.NEXTVAL, #{id}, (SELECT NVL(MAX(REF)+1, 0) FROM CC_INFO), 0, 0, 
+			#{title}, #{content}, SYSDATE, 0, 0, #{filename}, #{oldfilename})
+</insert>
+
+
+<!-- <insert id="writeInfo" parameterType="cc.factory.com.dto.InfoDto">
 	INSERT INTO CC_INFO(SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT)
 	VALUES(SEQ_CC_INFO.NEXTVAL, #{id}, (SELECT NVL(MAX(REF)+1, 0) FROM CC_INFO), 0, 0, 
 			#{title}, #{content}, SYSDATE, 0, 0)
-</insert>
+</insert> -->
+
+
 
 <select id="getInfo" parameterType="java.lang.Integer"
 	resultType="cc.factory.com.dto.InfoDto">
-	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT 
+	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT, FILENAME, OLDFILENAME
 	FROM CC_INFO 
 	WHERE SEQ=#{seq}
 </select>
@@ -159,6 +167,15 @@
 	INSERT INTO CC_INFO_RE(SEQ, INFOSEQ, ID, CONTENT, WDATE, DEL)
 	VALUES(SEQ_CC_INFO.NEXTVAL, #{info_Seq}, #{id}, #{content}, SYSDATE, 0)
 </insert>
+
+
+
+
+
+
+
+
+
 
 
 </mapper>
