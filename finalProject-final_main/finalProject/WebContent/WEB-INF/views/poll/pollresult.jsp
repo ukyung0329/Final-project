@@ -8,7 +8,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
  
-<section id="menu" class="section">
+<section id="menu" class="section" style="padding-top: 300px; padding-bottom: 120px;">
     <div class="section_container">
     
         
@@ -35,15 +35,14 @@
 		<!-- <h1 align="center">투표 결과</h1> -->
 		<div align="center" >
 			<img src="image/logo.png" alt="결과보기" style="width: 100px; height: 100px;"> 
-			<p style="font-family: 'Stylish', sans-serif; padding-bottom: 10px; font-size: 48px; color: 8A4B08;">" ${poll.question } "의 투표 결과 확인</p>
+			<p style="font-family: 'Stylish', sans-serif; padding-bottom: 10px; font-size: 48px; color: 8A4B08;">" ${poll.question } "의 <br>투표 결과 확인</p>
 		</div>
 		
 		
-		<br>
 		
 		<!-- high chart -->
 		<figure class="highcharts-figure">
-		  	<div id="container"></div>		  
+		  	<div id="container" style="height: 700px;"></div>		  
 		</figure>
 		
 <hr>		
@@ -70,13 +69,24 @@ $(document).ready(function(){
 		    plotShadow: false
 		  },
 		  title: {
-		    text: '마우스를 올려주세요',
+		    text: '마우스를 올리시면<br> 자세히 보실 수 있습니다',
 		    align: 'center',
 		    verticalAlign: 'middle',
-		    y: 60
+		    y: 60,
+		    style: {
+		          fontWeight: 'bold',
+		          color: '#aeaeae',
+			      fontSize: '28px',
+			      fontFamily: '"Stylish", sans-serif'
+		        }
 		  },
 		  tooltip: {
-		    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+		    style: {
+		          color: 'black',
+			      fontSize: '28px',
+			      fontFamily: '"Stylish", sans-serif',
+		        }
 		  },
 		  accessibility: {
 		    point: {
@@ -87,10 +97,12 @@ $(document).ready(function(){
 		    pie: {
 		      dataLabels: {
 		        enabled: true,
-		        distance: -50,
+		        distance: -90,
 		        style: {
 		          fontWeight: 'bold',
-		          color: 'white'
+		          color: 'white',
+			      fontSize: '32px',
+			      fontFamily: '"Stylish", sans-serif'
 		        }
 		      },
 		      startAngle: -90,
@@ -101,8 +113,9 @@ $(document).ready(function(){
 		  },
 		  series: [{
 		    type: 'pie',
-		    name: 'Browser share',
+		    name: '응답률 ',
 		    innerSize: '50%',
+		    size: '150%',
 		    data: <%=request.getAttribute("jsonData") %>
 		  }]
 		});
